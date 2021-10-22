@@ -103,16 +103,16 @@ function DataModels(props) {
         let Panel = <div className={styles.csnSkillRecord}>
             <div className={styles.csnSkillRecordRight}>
                 <div className={styles.csnSkillName}>
-                    Name : {Name}
+                Name : {Name}
                 </div>
                 <div className={styles.csnSkillDesc}>
-                    {Desc}
+                <h2>{Desc}</h2>
                 </div>
                 <div className={styles.csnSkillDesc}>
-                    {ID}
+                <h2>{ID}</h2>
                 </div>
                 <div className={styles.csnSkillDesc}>
-                    {decode}
+                <h2>  {decode}</h2>
                 </div>
             </div>
         </div>;
@@ -157,7 +157,7 @@ function DataModels(props) {
         return <form onSubmit={e => handleSubmit(e)}>
         <div className={styles.csnFormRow}>
             <div className={styles.csnFormLabel}>
-            Name
+            <h2>Name</h2>
             </div>
             <div className={styles.csnFormInput}>
             <input type="text" name="skill-name" value={Name} onChange={e => setName(e.target.value)} />
@@ -165,7 +165,7 @@ function DataModels(props) {
         </div>
         <div className={styles.csnFormRow}>
             <div className={styles.csnFormLabel}>
-            ID
+            <h2>ID</h2>
             </div>
             <div className={styles.csnFormInput}>
             <input type="text" name="skill-id" value={ID} onChange={e => setID(e.target.value)} />
@@ -173,17 +173,17 @@ function DataModels(props) {
         </div>
         <div className={styles.csnFormRow}>
             <div className={styles.csnFormLabel}>
-            Description
+            <h2>Description</h2>
             </div>
             <div className={styles.csnFormInput}>
-            <textarea name="skill-desc" value={Desc} onChange={e => setDesc(e.target.value)} rows={4}>
-            </textarea>
+            <input name="skill-desc" value={Desc} onChange={e => setDesc(e.target.value)} rows={4}>
+            </input>
             </div>
         </div>
         <div className={styles.csnFormRow}>
             <div className={styles.csnFormInput}>
                 <div className={styles.csnFormLabel}>
-                Image Url
+                <h2>Image Url</h2>
                 </div>
             <input type="text" name="skill-image-url" value={ImageURL} onChange={e => setImageURL(e.target.value)} />
             </div>
@@ -208,7 +208,7 @@ function DataModels(props) {
                     <div className={styles.csnOverlay}>
                         <div className={styles.csnOverlayContent}>
                             <div className={styles.csnOverlayTextUpper}>
-                                <h3>{loadingMessage}</h3>
+                                <h2>{loadingMessage}</h2>
                             </div>
                         </div>
                     </div>
@@ -218,9 +218,7 @@ function DataModels(props) {
                     <div className={styles.csnSkillsFormContainerContent}>
                         <div>
                             <div className={styles.csnSkillsEntryTabs}>
-                                <div onClick={() => setEntryTab('simple')} className={styles.csnSkillsEntryTab + ' ' + (entryTab === 'simple' && styles.csnSkillsEntryTabActive)}>
-                                    Enter Skill
-                                </div>
+
                             </div>
 
                             <div style={{display: entryTab === 'simple' ? 'block' : 'none'}}>
@@ -238,10 +236,10 @@ function DataModels(props) {
                             <div>
                                 { (Data)  ?
                                     display(Data) :
-                                    <h3>You need to add some data!</h3>
+                                    <h1>You need to add some data!</h1>
                                 }
                             </div>
-                            <img src={ImageURL} alt="new" width="200" height="200"/>
+                            <img src={ImageURL} width="200" height="200"/>
                         </div>
                     </div>
                 </div>
@@ -327,13 +325,13 @@ function App() {
   
     function getWaitingForEthPanel() {
       return <div>
-        Waiting for Ethereum accounts...
+        <h2>Waiting for Ethereum accounts...</h2>
       </div>;
     }
   
     function getWaitingForDIDPanel() {
       return <div>
-        Waiting for a decentralized ID...
+       <h2> Waiting for a decentralized ID...</h2>
       </div>
     }
   
@@ -341,7 +339,7 @@ function App() {
       return (
         <div>
               <h1>
-                We got your app 
+                Take Control of Your Data 
               </h1>
 
                 { 
