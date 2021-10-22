@@ -2,6 +2,16 @@
 
 In this tutorial we set up the application to interact with JS HTTP Client with a public Ceramic node. In addition to creating a determenistic Ceramic Tile and resolving an unstoppable domain.
 
+![](https://i.imgur.com/6zbdC3L.jpg?1)
+
+![](https://i.imgur.com/gcs0NJT.jpg?1)
+
+![](https://i.imgur.com/AcxIR8R.jpg?1)
+
+![](https://i.imgur.com/pYJcuZ5.jpg?1)
+
+![](https://i.imgur.com/9DryUxK.jpg?1)
+
 ## Requirements
 Following https://developers.ceramic.network/build/javascript/http/
 the requirements are Node.js v14 and npm v6.
