@@ -65,13 +65,13 @@ function App() {
   
     function getWaitingForEthPanel() {
       return <div>
-        Waiting for Ethereum accounts...
+        <h2>Waiting for Ethereum accounts...</h2>
       </div>;
     }
   
     function getWaitingForDIDPanel() {
       return <div>
-        Waiting for a decentralized ID...
+       <h2> Waiting for a decentralized ID...</h2>
       </div>
     }
   
@@ -79,7 +79,7 @@ function App() {
       return (
         <div>
               <h1>
-                We got your app 
+                Take Control of Your Data 
               </h1>
 
                 { 
