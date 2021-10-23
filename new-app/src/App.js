@@ -56,10 +56,10 @@ function App() {
   
     function getEthNeededPanel() {
       return <div>
-        You need wallet
+       <h2> You need wallet 
         <a href="https://metamask.io/" target="_blank" rel="noreferrer">
           Try MetaMask
-        </a>
+        </a> </h2>
       </div>;
     }
   
@@ -79,7 +79,7 @@ function App() {
       return (
         <div>
               <h1>
-                Take Control of Your Data 
+                Take Control of Your Data with TtD
               </h1>
 
                 { 

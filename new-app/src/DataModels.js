@@ -12,9 +12,9 @@ function DataModels(props) {
     const [Name, setName] = useState();
     const [ID, setID] = useState();
     const [Desc, setDesc] = useState();
-    const [ImageURL, setImageURL] = useState('');
+    const [ImageURL, setImageURL] = useState();
     const [loadingMessage, setLoadingMessage] = useState('Loading...');
-    const [entryTab, setEntryTab] = useState('simple');
+    const [entryTab] = useState('simple');
     const [document, setDocument] = useState();
     const [decode, setDecoded] = useState();
 
@@ -53,7 +53,7 @@ function DataModels(props) {
             if (true) {
                 resolve(resolution.addr(input, 'ETH'));
             } else {
-                reject("promise failed");
+                //reject("promise failed");
             }
         });
 
@@ -68,17 +68,18 @@ function DataModels(props) {
         
         let Panel = <div className={styles.csnSkillRecord}>
             <div className={styles.csnSkillRecordRight}>
+                <img src={ImageURL} alt='value' width="200" height="200"/>
                 <div className={styles.csnSkillName}>
                 Name : {Name}
                 </div>
                 <div className={styles.csnSkillDesc}>
-                <h2>{Desc}</h2>
+                <h2> {ID} </h2>
                 </div>
                 <div className={styles.csnSkillDesc}>
-                <h2>{ID}</h2>
+                <h2>  {decode} </h2>
                 </div>
                 <div className={styles.csnSkillDesc}>
-                <h2>  {decode}</h2>
+                <h2> {Desc} </h2>
                 </div>
             </div>
         </div>;
@@ -103,8 +104,7 @@ function DataModels(props) {
 
         if(Data) {
             (async() => {
-
-                await document.update( Data);////
+                await document.update(Data);////
                 setLoadingMessage('');
                 clearTimeout(t);
             })();
@@ -117,46 +117,42 @@ function DataModels(props) {
     }
 
     var img = new Image();
-    img.src = "https://www.google.com/images/srpr/logo4w.png";
+    img.src = "https://dragonflytraining.files.wordpress.com/2013/10/man-with-question-01.png";
 
     function getSimpleSkillForm() {
         return <form onSubmit={e => handleSubmit(e)}>
-        <div className={styles.csnFormRow}>
+
             <div className={styles.csnFormLabel}>
             <h2>Name</h2>
             </div>
             <div className={styles.csnFormInput}>
             <input type="text" name="skill-name" value={Name} onChange={e => setName(e.target.value)} />
             </div>
-        </div>
-        <div className={styles.csnFormRow}>
+
             <div className={styles.csnFormLabel}>
             <h2>ID</h2>
             </div>
             <div className={styles.csnFormInput}>
             <input type="text" name="skill-id" value={ID} onChange={e => setID(e.target.value)} />
             </div>
-        </div>
-        <div className={styles.csnFormRow}>
+
+
             <div className={styles.csnFormLabel}>
             <h2>Description</h2>
             </div>
             <div className={styles.csnFormInput}>
-            <input name="skill-desc" value={Desc} onChange={e => setDesc(e.target.value)} rows={4}>
+            <input name="skill-desc" value={Desc} onChange={e => setDesc(e.target.value)}>
             </input>
             </div>
-        </div>
-        <div className={styles.csnFormRow}>
+
             <div className={styles.csnFormInput}>
                 <div className={styles.csnFormLabel}>
                 <h2>Image Url</h2>
                 </div>
             <input type="text" name="skill-image-url" value={ImageURL} onChange={e => setImageURL(e.target.value)} />
             </div>
-        </div>
-        <div className={styles.csnFormRow}>
+
             <input type="submit" name="submit" value="submit" />
-        </div>
         </form>
     }
 
@@ -166,7 +162,6 @@ function DataModels(props) {
         <div className={styles.csnSkillsPage}>
             <div className={styles.csnSkillsPageHeadingRow}>
                 <div onClick={() => setAppStarted(false)}>
-                
                 </div>
             </div>
             <div className={styles.csnSkillsPageMainRow}>
@@ -180,13 +175,9 @@ function DataModels(props) {
                     </div>
                 }
 
-                <div className={styles.csnSkillsFormContainer }>
+                <div className={styles.csnSkillsFormContainer}>
                     <div className={styles.csnSkillsFormContainerContent}>
                         <div>
-                            <div className={styles.csnSkillsEntryTabs}>
-
-                            </div>
-
                             <div style={{display: entryTab === 'simple' ? 'block' : 'none'}}>
                                 {getSimpleSkillForm()}
                             </div>
@@ -194,20 +185,13 @@ function DataModels(props) {
                     </div>
                 </div>
 
-                <div className={styles.csnSkillsContainer }>
-                    <div className={styles.csnSkillsContainerHeading}>
-                    </div>
-                    <div className={styles.csnSkillsContainerContent}>
+                <div className={styles.csnSkillsContainer}>
                         <div className="data-models">
-                            <div>
                                 { (Data)  ?
                                     display(Data) :
                                     <h1>You need to add some data!</h1>
-                                }
-                            </div>
-                            <img src={ImageURL} width="200" height="200"/>
+                                }  
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
