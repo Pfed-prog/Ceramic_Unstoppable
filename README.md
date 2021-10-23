@@ -383,3 +383,11 @@ export default App;
 In this file we initialise the user and connect via 3id-connect, where we access ethereum address and create or update the ceramic instance uniquely connected to the user.
 
 Finally, we have also added App.module.css file
+
+## Additional Resources
+
+[Unstoppable Domains Docs](https://docs.unstoppabledomains.com/)
+
+[Ceramic Developers Quickstart](https://developers.ceramic.network/build/javascript/quick-start/)
+
+[Ceramic Tutorials](https://blog.ceramic.network/tag/tutorials/)
