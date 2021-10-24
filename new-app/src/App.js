@@ -77,7 +77,7 @@ function App() {
   
     function getLandingPage() {
       return (
-        <div>
+        <div className="Init">
               <h1>
                 Take Control of Your Data with TtD
               </h1>
