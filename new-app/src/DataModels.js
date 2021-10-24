@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import styles from './App.module.css'
 import { TileDocument } from '@ceramicnetwork/stream-tile'
 import Resolution from '@unstoppabledomains/resolution'
+
 const resolution = new Resolution();
 
 function DataModels(props) {
@@ -68,7 +69,7 @@ function DataModels(props) {
         
         let Panel = <div className={styles.csnSkillRecord}>
             <div className={styles.csnSkillRecordRight}>
-                <img src={ImageURL} alt='value' width="200" height="200"/>
+                <img src={ImageURL} alt='value' className='image1' width="200" height="200"/>
                 <div className={styles.csnSkillName}>
                 Name : {Name}
                 </div>

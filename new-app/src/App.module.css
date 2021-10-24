@@ -8,7 +8,8 @@
     color: orangered;
 }
 
-img {padding: 0rem 10rem;}
+.img1 {width: 50%;
+    align-items: center;}
 
 .csnSkillsPageMainRow {
     display: flex;
@@ -17,24 +18,18 @@ img {padding: 0rem 10rem;}
 }
 
 .csnSkillsFormContainer {
-    width: 50%;
-    border: 1px solid orange;
+    width: 40%;
+    border: 5px solid orange;
     border-radius: 1em;
-    margin: 60px 10px 30px 85px;
-    padding: 0.5em;
 }
 
 .csnSkillsContainer {
     width: 50%;
-    border: 1px solid orange;
+    border: 5px solid orange;
     border-radius: 1em;
-    margin: 60px 85px 30px 10px;
-    padding: 0.5em;
-    word-break: break-all;
 }
 
 .csnSkillRecordRight {
-    display: flex;
     flex-direction: column;
     flex: 1;    
     padding: 0.5em;
