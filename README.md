@@ -8,9 +8,8 @@ In this tutorial we set up the application to interact with JS HTTP Client with 
 
 ![](https://i.imgur.com/AcxIR8R.jpg?1)
 
-![](https://i.imgur.com/pYJcuZ5.jpg?1)
+![](https://i.imgur.com/zaJIS2F.jpg?1)
 
-![](https://i.imgur.com/9DryUxK.jpg?1)
 
 ## Requirements
 Following https://developers.ceramic.network/build/javascript/http/
