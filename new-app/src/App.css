@@ -2,6 +2,8 @@ body {
   background-color: rgb(31, 30, 28);
 }
 
+.Footer h1 {color:orange}
+
 div {
   margin: auto; 
   text-align: center;

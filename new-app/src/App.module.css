@@ -18,15 +18,15 @@
 }
 
 .csnSkillsFormContainer {
-    width: 40%;
     border: 5px solid orange;
-    border-radius: 1em;
+    border-radius: 2em;
+    width:47%;
 }
 
 .csnSkillsContainer {
-    width: 50%;
     border: 5px solid orange;
-    border-radius: 1em;
+    border-radius: 2em;
+    width:47%;
 }
 
 .csnSkillRecordRight {

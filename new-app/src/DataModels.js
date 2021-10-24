@@ -15,9 +15,8 @@ function DataModels(props) {
     const [Desc, setDesc] = useState();
     const [ImageURL, setImageURL] = useState();
     const [loadingMessage, setLoadingMessage] = useState('Loading...');
-    const [entryTab] = useState('simple');
     const [document, setDocument] = useState();
-    const [decode, setDecoded] = useState();
+    const [Decode, setDecoded] = useState();
 
     useEffect(() => {
         if(ceramic) {
@@ -37,9 +36,10 @@ function DataModels(props) {
                 if(doc.content.name){setName(doc.content.name)}
                 if(doc.content.image){setImageURL(doc.content.image)}
                 if(doc.content.id){setID(doc.content.id)}
+                if(doc.content.decode){setDecoded(doc.content.decode)}
                 if(doc.content.description || doc.content.name || doc.content.id ||  doc.content.image){
                     setData(
-                        {name: Name, id: ID, description: Desc, image: ImageURL}
+                        {name: Name, id: ID, description: Desc, decode: Decode, image: ImageURL}
                     )
                 }
                 
@@ -50,11 +50,9 @@ function DataModels(props) {
     }, [ceramic]);
 
     function getSome(input){
-        var promise = new Promise((resolve, reject) => {
+        var promise = new Promise((resolve) => {
             if (true) {
                 resolve(resolution.addr(input, 'ETH'));
-            } else {
-                //reject("promise failed");
             }
         });
 
@@ -71,13 +69,13 @@ function DataModels(props) {
             <div className={styles.csnSkillRecordRight}>
                 <img src={ImageURL} alt='value' className='image1' width="200" height="200"/>
                 <div className={styles.csnSkillName}>
-                Name : {Name}
+                <h1>{Name}</h1>
                 </div>
                 <div className={styles.csnSkillDesc}>
                 <h2> {ID} </h2>
                 </div>
                 <div className={styles.csnSkillDesc}>
-                <h2>  {decode} </h2>
+                <h2>  {Decode} </h2>
                 </div>
                 <div className={styles.csnSkillDesc}>
                 <h2> {Desc} </h2>
@@ -94,10 +92,15 @@ function DataModels(props) {
             setLoadingMessage('')
         }, 20000);
 
+        if (ID){
+            getSome(ID)
+        }
+
         let Data = {
             name: Name,
             id: ID,
             description: Desc,
+            decode: Decode,
             image: ImageURL
         }
         
@@ -105,24 +108,17 @@ function DataModels(props) {
 
         if(Data) {
             (async() => {
-                await document.update(Data);////
+                await document.update(Data);
                 setLoadingMessage('');
                 clearTimeout(t);
             })();
-        }
-        if (ID){
-            getSome(ID)
         }
 
         e.preventDefault();
     }
 
-    var img = new Image();
-    img.src = "https://dragonflytraining.files.wordpress.com/2013/10/man-with-question-01.png";
-
     function getSimpleSkillForm() {
         return <form onSubmit={e => handleSubmit(e)}>
-
             <div className={styles.csnFormLabel}>
             <h2>Name</h2>
             </div>
@@ -136,7 +132,6 @@ function DataModels(props) {
             <div className={styles.csnFormInput}>
             <input type="text" name="skill-id" value={ID} onChange={e => setID(e.target.value)} />
             </div>
-
 
             <div className={styles.csnFormLabel}>
             <h2>Description</h2>
@@ -161,6 +156,7 @@ function DataModels(props) {
 
         let skillsContent = 
         <div className={styles.csnSkillsPage}>
+            <h1> Take Control of Your Data with TtD </h1>
             <div className={styles.csnSkillsPageHeadingRow}>
                 <div onClick={() => setAppStarted(false)}>
                 </div>
@@ -179,7 +175,7 @@ function DataModels(props) {
                 <div className={styles.csnSkillsFormContainer}>
                     <div className={styles.csnSkillsFormContainerContent}>
                         <div>
-                            <div style={{display: entryTab === 'simple' ? 'block' : 'none'}}>
+                            <div>
                                 {getSimpleSkillForm()}
                             </div>
                         </div>
@@ -194,6 +190,9 @@ function DataModels(props) {
                                 }  
                         </div>
                 </div>
+            </div>
+            <div className="Footer">
+            <h1>T+D</h1>
             </div>
         </div>
         return skillsContent;
