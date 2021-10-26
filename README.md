@@ -1,10 +1,12 @@
 # Overview of the Tutorial
 
+The write-up is also available on my blog: https://dspyt.com/simple-app-with-ceramic-data-model-and-unstoppable-domains/
+
 The app is available on https://ceramic-unstoppable.vercel.app/
 
 Ceramic allows users to have complete ownership over their data by providing decentralized technologies for authentication and data storage.
 
-In this tutorial we set up an application to interact with JS HTTP Client with a public Ceramic node. In addition we create a determenistic Ceramic Tile and resolve an unstoppable domain which we store in the decentralized profile of the user.
+In this tutorial we set up an application to interact with JS HTTP Client through a public Ceramic node. In addition we create a deterministic Ceramic Tile and resolve an unstoppable domain which we store in the decentralized profile of the user.
 
 ![](https://i.imgur.com/6zbdC3L.jpg?1)
 
@@ -20,10 +22,9 @@ Node.js v14 and npm v6: https://developers.ceramic.network/build/javascript/http
 
 ## Libraries
 
-- @ceramicnetwork/http-client
+- @ceramicnetwork/stream-tile
 - @ceramicnetwork/3id-did-resolver
 - @3id/connect
-- @ceramicnetwork/stream-tile
 - dids
 - @unstoppabledomains/resolution
 - near-api-js
@@ -57,7 +58,7 @@ import DataModels from './DataModels';
 Next we configure a public node URL:
 `const API_URL = 'https://ceramic-clay.3boxlabs.com';`
 
-The flow of the program is, first we check for availability of metamask, ask the permission of the user and store the ethereum public address:
+We also check for availability of metamask, ask the permission of the user to access the wallet and store the ethereum public address:
 ```
 useEffect(() => {
   if(window.ethereum) {
@@ -101,7 +102,7 @@ useEffect(() => {
 }, [ethereum, ethAddresses]);
 ```
 
-Following successful auhentification we direct user to another page where he/she can create and update personal DID profile. The file looks as:
+Following successful authentication we direct user to another page where he/she can create and update personal DID profile. The file looks as:
 ```
 import './App.css';
 import { useEffect, useState} from 'react';
@@ -252,7 +253,9 @@ await doc.update(Data);
 
 In turn, if the values are already stored we can access the keys, for instance, the description key as `doc.content.description`.
 
-Besides, we use Resolver from Unstoppable Domains to get the connected ethereum address to the domain:
+## Unstoppable Domains Resolver 
+
+Besides, in our application we use Resolver from Unstoppable Domains to decode the connected ethereum address of the public domain such as ryan.crypto:
 ```
 function getAddress(input){
     var promise = new Promise((resolve) => {
@@ -268,7 +271,8 @@ function getAddress(input){
     });
 }
 ```
-To sum up, within DataModels.js we pass the intialized identifiers of the user and query the determenstic Tile connected to the DID of the user:
+
+To sum up, within DataModels.js we pass the initialized identifiers of the user and query the deterministic Tile connected to the DID of the user:
 
 ```
 import { useEffect, useState } from 'react';
