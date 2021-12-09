@@ -33,11 +33,6 @@ function App() {
           }
   
           await activate(connector)
-
-          if(window.ethereum) {
-            setEthereum(window.ethereum);
-            setEthAddresses(account);
-          }
         } catch (error) {
           console.error(error)
         }
@@ -63,6 +58,21 @@ function App() {
         console.error(error)
       }
     } */
+
+    useEffect(() => {
+      if(active) {
+        setEthereum(window.ethereum);
+        (async() => {
+          try {
+            const addresses = await window.ethereum.request({ method: 'eth_requestAccounts'})
+            setEthAddresses(addresses);
+          }
+          catch(e) { 
+            console.log(e);
+          }
+        })();
+      }
+    }, [active]);
 
 /*     useEffect(() => {
       if(window.ethereum) {
@@ -131,7 +141,7 @@ function App() {
       return (
         <div className="Init">
               <h1>
-                Take Control of Your Data with TtD
+                Take Control of Your Data with T+D
               </h1>
 
                 { 
