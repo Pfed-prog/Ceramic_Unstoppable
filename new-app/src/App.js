@@ -33,6 +33,11 @@ function App() {
           }
   
           await activate(connector)
+
+          if(window.ethereum) {
+            setEthereum(window.ethereum);
+            setEthAddresses(account);
+          }
         } catch (error) {
           console.error(error)
         }
@@ -74,7 +79,7 @@ function App() {
       }
     }, []); */
   
-/*     useEffect(() => {
+    useEffect(() => {
       if(ethereum && ethAddresses) {
         (async () => {
           const newCeramic = new CeramicClient(API_URL);
@@ -95,7 +100,7 @@ function App() {
           setCeramic(newCeramic);
         })();
       }
-    }, [ethereum, ethAddresses]); */
+    }, [ethereum, ethAddresses]);
   
     function createConnectHandler(connectorId) {
       return async () => {
