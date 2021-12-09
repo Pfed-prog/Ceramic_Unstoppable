@@ -44,7 +44,7 @@ function App() {
         <>
           {Object.keys(connectors).map(v => (
             <button key={v} onClick={createConnectHandler(v)}>
-            W Connect to {v}
+            Connect to {v}
             </button>
           ))}
         </>
@@ -59,7 +59,7 @@ function App() {
       }
     } */
 
-    useEffect(() => {
+/*     useEffect(() => {
       if(window.ethereum) {
         setEthereum(window.ethereum);
         (async() => {
@@ -72,9 +72,9 @@ function App() {
           }
         })();
       }
-    }, []);
+    }, []); */
   
-    useEffect(() => {
+/*     useEffect(() => {
       if(ethereum && ethAddresses) {
         (async () => {
           const newCeramic = new CeramicClient(API_URL);
@@ -95,7 +95,7 @@ function App() {
           setCeramic(newCeramic);
         })();
       }
-    }, [ethereum, ethAddresses]);
+    }, [ethereum, ethAddresses]); */
   
     function createConnectHandler(connectorId) {
       return async () => {
@@ -118,7 +118,7 @@ function App() {
 
     function getWaitingForDIDPanel() {
       return <div>
-       <h2> Waiting for a decentralized ID :{ethAddresses}</h2>
+       <h2> Waiting for a decentralized ID :{account}</h2>
       </div>
     }
   
