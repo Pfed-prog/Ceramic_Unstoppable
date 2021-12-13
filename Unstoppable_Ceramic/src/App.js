@@ -64,8 +64,8 @@ function App() {
         setEthereum(window.ethereum);
         (async() => {
           try {
-            //const addresses = await window.ethereum.request({ method: 'eth_requestAccounts'})
-            setEthAddresses(account);
+            const addresses = await window.ethereum.request({ method: 'eth_requestAccounts'})
+            setEthAddresses(addresses);
           }
           catch(e) { 
             console.log(e);
