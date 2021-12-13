@@ -35,7 +35,10 @@ function DataModels(props) {
                 if(doc.content.description){setDesc(doc.content.description)}
                 if(doc.content.name){setName(doc.content.name)}
                 if(doc.content.image){setImageURL(doc.content.image)}
-                if(doc.content.id){setID(doc.content.id)}
+                if(doc.content.id){
+                    setID(doc.content.id)
+                    await setDecoded(getResolution(doc.content.id))
+                }
                 if(doc.content.decode){setDecoded(doc.content.decode)}
                 if(doc.content.description || doc.content.name || doc.content.id ||  doc.content.image){
                     setData(
@@ -92,7 +95,7 @@ function DataModels(props) {
             setLoadingMessage('')
         }, 20000);
 
-        if (ID){getResolution(ID)}
+        if(ID){getResolution(ID)}
 
         let Data = {
             name: Name,
