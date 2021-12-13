@@ -49,7 +49,7 @@ function DataModels(props) {
         }
     }, [ceramic]);
 
-    function getSome(input){
+    function getResolution(input){
         var promise = new Promise((resolve) => {
             if (true) {
                 resolve(resolution.addr(input, 'ETH'));
@@ -59,7 +59,7 @@ function DataModels(props) {
         promise.then( result => {
             setDecoded(result)
         }, function(error) {
-            //setDecoded(error)
+            setDecoded('')
         });
     }
 
@@ -92,9 +92,7 @@ function DataModels(props) {
             setLoadingMessage('')
         }, 20000);
 
-        if (ID){
-            getSome(ID)
-        }
+        if (ID){getResolution(ID)}
 
         let Data = {
             name: Name,
@@ -127,7 +125,7 @@ function DataModels(props) {
             </div>
 
             <div className={styles.csnFormLabel}>
-            <h2>ID</h2>
+            <h2>ID:Eth</h2>
             </div>
             <div className={styles.csnFormInput}>
             <input type="text" name="skill-id" value={ID} onChange={e => setID(e.target.value)} />
