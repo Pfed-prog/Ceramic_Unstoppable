@@ -8,8 +8,10 @@
     color: orangered;
 }
 
-.img1 {width: 50%;
-    align-items: center;}
+.img1 {
+    width: 50%;
+    align-items: center;
+}
 
 .csnSkillsPageMainRow {
     display: flex;

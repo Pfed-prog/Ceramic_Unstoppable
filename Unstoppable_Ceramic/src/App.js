@@ -42,22 +42,26 @@ function App() {
     function buttons() {
       return (
         <>
-          {Object.keys(connectors).map(v => (
-            <button key={v} onClick={createConnectHandler(v)}>
-            Connect to {v}
-            </button>
-          ))}
+          <button
+            onClick={createConnectHandler(Object.keys(connectors)[0])}>
+            <span>Login with Metamask</span>
+          </button>
+
+          <button
+            onClick={createConnectHandler(Object.keys(connectors)[1])}>
+            <span>Login with WalletConnect</span>
+          </button>
+
+          <button
+            onClick={createConnectHandler(Object.keys(connectors)[2])}>
+            <span>Login with Unstoppable</span>
+
+          </button>
+
+
         </>
       )
     }
-
-/*     async function handleDisconnect() {
-      try {
-        deactivate()
-      } catch (error) {
-        console.error(error)
-      }
-    } */
 
     useEffect(() => {
       if(active) {
@@ -73,21 +77,6 @@ function App() {
         })();
       }
     }, [active]);
-
-/*     useEffect(() => {
-      if(window.ethereum) {
-        setEthereum(window.ethereum);
-        (async() => {
-          try {
-            const addresses = await window.ethereum.request({ method: 'eth_requestAccounts'})
-            setEthAddresses(addresses);
-          }
-          catch(e) { 
-            console.log(e);
-          }
-        })();
-      }
-    }, []); */
   
     useEffect(() => {
       if(ethereum && ethAddresses) {

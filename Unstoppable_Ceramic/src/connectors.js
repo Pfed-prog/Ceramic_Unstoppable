@@ -1,14 +1,13 @@
 import {UAuthConnector} from '@uauth/web3-react'
 import {InjectedConnector} from '@web3-react/injected-connector'
-//import {WalletConnectConnector} from '@web3-react/walletconnect-connector'
+import {WalletConnectConnector} from '@web3-react/walletconnect-connector'
 
-// Instanciate your other connectors.
 export const injected = new InjectedConnector({supportedChainIds: [1]})
 
-//export const walletconnect = new WalletConnectConnector({
-//  infuraId: process.env.REACT_APP_INFURA_ID,
-//  qrcode: true,
-//})
+export const walletconnect = new WalletConnectConnector({
+  infuraId: process.env.REACT_APP_INFURA_ID,
+  qrcode: true,
+})
 
 export const uauth = new UAuthConnector({
   clientID: process.env.REACT_APP_CLIENT_ID,
@@ -27,7 +26,7 @@ export const uauth = new UAuthConnector({
 
 const connectors = {
   injected,
-  //walletconnect,
+  walletconnect,
   uauth,
 }
 
