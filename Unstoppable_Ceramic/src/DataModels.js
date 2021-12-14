@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import styles from './App.module.css'
 import { TileDocument } from '@ceramicnetwork/stream-tile'
 import Resolution from '@unstoppabledomains/resolution'
+import styles from './css/App.module.css'
 
 const resolution = new Resolution();
 

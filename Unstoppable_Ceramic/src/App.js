@@ -6,7 +6,7 @@ import ThreeIdResolver from '@ceramicnetwork/3id-did-resolver';
 import { ThreeIdConnect,  EthereumAuthProvider } from '@3id/connect'
 import { DID } from 'dids'
 
-import './App.css';
+import './css/App.css';
 import DataModels from './DataModels';
 import connectors from './connectors'
 
@@ -52,12 +52,11 @@ function App() {
             <span>Login with WalletConnect</span>
           </button>
 
-          <button
+          <button className="unst"
             onClick={createConnectHandler(Object.keys(connectors)[2])}>
-            <span>Login with Unstoppable</span>
+            
 
           </button>
-
 
         </>
       )
