@@ -1,6 +1,6 @@
-# Overview of the Tutorial
+# Overview of the Original Tutorial for Ceramic an Unstoppable Domains
 
-The write-up is also available on my blog: https://dspyt.com/simple-app-with-ceramic-data-model-and-unstoppable-domains/
+The original write-up is also available on my blog: https://dspyt.com/simple-app-with-ceramic-data-model-and-unstoppable-domains/
 
 The app is available on https://ceramic-unstoppable.vercel.app/
 
