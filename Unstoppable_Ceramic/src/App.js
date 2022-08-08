@@ -13,7 +13,7 @@ import connectors from "./connectors";
 const API_URL = "https://ceramic-clay.3boxlabs.com";
 
 function App() {
-  const { active, account, activate, deactivate } = useWeb3React();
+  const { active, account, activate } = useWeb3React();
   const [ceramic, setCeramic] = useState();
   const [ethAddresses, setEthAddresses] = useState();
   const [ethereum, setEthereum] = useState();
@@ -98,25 +98,6 @@ function App() {
       })();
     }
   }, [ethereum, ethAddresses]);
-
-  function createConnectHandler(connectorId) {
-    return async () => {
-      try {
-        const connector = connectors[connectorId];
-
-        if (
-          connector instanceof WalletConnectConnector &&
-          connector.walletConnectProvider?.wc?.uri
-        ) {
-          connector.walletConnectProvider = undefined;
-        }
-
-        await activate(connector);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-  }
 
   function getWaitingForDIDPanel() {
     return (
