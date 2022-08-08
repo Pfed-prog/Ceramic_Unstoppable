@@ -73,8 +73,9 @@ function App() {
     }
   }, [active]);
 
+  const condition = ethereum && ethAddresses;
   useEffect(() => {
-    if (ethereum && ethAddresses) {
+    if (condition) {
       (async () => {
         const newCeramic = new CeramicClient(API_URL);
 
@@ -97,7 +98,7 @@ function App() {
         setCeramic(newCeramic);
       })();
     }
-  }, [ethereum, ethAddresses]);
+  }, [condition]);
 
   function getWaitingForDIDPanel() {
     return (
