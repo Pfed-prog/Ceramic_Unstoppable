@@ -73,7 +73,7 @@ function App() {
     }
   }, [active]);
 
-  const condition = ethereum && ethAddresses;
+  const condition = ethereum !== undefined && ethAddresses !== undefined;
   useEffect(() => {
     if (condition) {
       (async () => {
